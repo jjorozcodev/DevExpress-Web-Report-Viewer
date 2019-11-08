@@ -12,6 +12,7 @@ namespace DXwebReportViewer {
 
     public class MvcApplication : System.Web.HttpApplication {
         protected void Application_Start() {
+            DevExpress.XtraReports.Web.WebDocumentViewer.Native.WebDocumentViewerBootstrapper.SessionState = System.Web.SessionState.SessionStateBehavior.Disabled;
             AreaRegistration.RegisterAllAreas();
 
             GlobalConfiguration.Configure(WebApiConfig.Register);
@@ -21,6 +22,7 @@ namespace DXwebReportViewer {
             ModelBinders.Binders.DefaultBinder = new DevExpress.Web.Mvc.DevExpressEditorsBinder();
 
             DevExpress.Web.ASPxWebControl.CallbackError += Application_Error;
+            DevExpress.Web.Mvc.MVCxWebDocumentViewer.StaticInitialize();
         }
 
         protected void Application_Error(object sender, EventArgs e) {

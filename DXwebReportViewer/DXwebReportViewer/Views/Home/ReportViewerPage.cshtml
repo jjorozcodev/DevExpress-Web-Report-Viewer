@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "Report Viewer Page Countries";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+@Html.DevExpress().WebDocumentViewer(settings => {
+    settings.Name = "WebDocumentViewer";
+}).Bind(new DevExpress.XtraReports.Web.CachedReportSourceWeb(new XtraReportCountries())).GetHtml()
